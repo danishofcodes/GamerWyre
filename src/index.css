@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .flex{
+    display: flex;
+ gap:20px;
+ flex-wrap: wrap;
+} */
+
+nav{
+    /* margin-bottom: 20px; */
+    padding: 10px;
+  
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+/* .away{
+    padding: 1em;
+  margin-left: 20em;
+} */
+
+aside{
+    /* background-color: #ddd; */
+    width: 18em;
+    height: 100vh;
+    top: 0px;
+    position: sticky;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+
+.inp-check-field input:checked ~ .checked{
+ background-color: #8F00FF;
+}
+
+
+.inp-check-field input ~ .checked{
+    background-color: #ffffff;
+   }
+
+   input[type=radio]{
+    accent-color: #8F00FF;
+    height: 1.3em;
+    width: 1.3em;
+    cursor: pointer;
+}
+
+input[type='range']{ accent-color: #8F00FF; }
+
+input[type=radio]:hover{
+  outline: #8F00FF;
+  border: #ff9513;
+}
+
+.bubble {
+  background-color: tomato;
+  color: #fff;
+  font-weight: 600;
+  height: 25px;
+  min-width: 25px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-left: 5px;
+  padding: 0px 5px;
+}
+
+.cart{
+  /* height: auto; */
+  width: 40em;
+  background: aliceblue;
+  padding: 15px;
+  min-height: 10em;
+  max-height: 32em;
+}
+
+.backdropmodal{background-color: #616161a6;
+height: 100vh;
+width: 100%;
+position: fixed;
+top: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+backdrop-filter: blur(6px);
+overflow: hidden;
+}
