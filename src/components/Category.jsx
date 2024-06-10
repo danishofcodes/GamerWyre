@@ -7,7 +7,7 @@ export default function Category({handleChange, handleShowAll}) {
        <div className="mx-2">
 
        <div className="flex items-center gap-2">
-       <input type="radio" name="prodtype"  onChange={handleShowAll} value=""  title="All"/>
+       <input type="radio" name="prodtype"  onChange={handleShowAll} value="All"  title="All" />
         <label htmlFor="cat1" className="font-medium text-gray-900 dark:text-gray-300" >All</label>
         </div>
        <Input value="Gaming Console" handleChange={handleChange} title="Gaming Console" name="prodtype"/>

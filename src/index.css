@@ -120,3 +120,11 @@ overflow: hidden;
     font-size: 13px
 }
 }
+
+
+.btncust{
+  font-size: 13px;
+  padding: 7px;
+  width: 86px;
+  font-weight: 400;
+}

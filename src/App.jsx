@@ -28,6 +28,7 @@ function App() {
   const [showFilter, setShowFilter] = useState(false);
 
   function handelInput(e) {
+    console.log(selectedCategory)
     setLoadingState(true)
     setPriceRange(500)
 
@@ -50,6 +51,7 @@ function App() {
 
   function handleClick(e) {
     setPriceRange(500)
+    setSelectedCategory(null)
     setSelectedCategory(e.target.value);
   }
 
@@ -101,7 +103,8 @@ function App() {
   // console.log(result)
 
   function showAll() {
-    setSelectedCategory(null)
+    setSelectedCategory(null);
+    setSearchQuery('')
   }
 
 // Rmeove Product from Cart 
@@ -112,9 +115,9 @@ function App() {
   }
 
 // Show Hide Filters in sideNav
-  function handleFilters(){
+  function handleSidebar(){
     setShowFilter(prev=> !prev);
-    if(window.innerWidth <= 883){
+    if(window.innerWidth <= 400){
     document.body.classList.toggle('disable-scroll');
   }
   }
@@ -125,17 +128,21 @@ function App() {
   // For No. Of Search Results
   let totalresults = result.length;
 
+
+   function gobacktomain(){
+    selectedCategory('All')
+   }
   
   return (
     <>
       <nav className='p-2 flex items-center justify-between bg-[#7532fa]'>
-        <div className='flex items-center'>
+        <div className='flex items-center' onClick={gobacktomain}>
           <FontAwesomeIcon icon={faGamepad} className='text-[#fff] text-4xl' />
           <h4 className='font-bold m-0 text-xl ms-2 text-[#fff]'>GamerWyre</h4>
         </div>
 
         <div className='flex '>
-          <button onClick={handleFilters} className={showFilter ? 'me-2 bg-[#ffffff] text-[#5b21b6] px-3 rounded-full font-bold' : 'me-2 bg-[#5b21b6] text-white px-3 rounded-full font-bold'}><FontAwesomeIcon icon={faFilter}/> Filters</button>
+          {/* <button onClick={handleFilters} className={showFilter ? 'me-2 bg-[#ffffff] text-[#5b21b6] px-3 rounded-full font-bold' : 'me-2 bg-[#5b21b6] text-white px-3 rounded-full font-bold'}><FontAwesomeIcon icon={faFilter}/> Filters</button> */}
           <button onClick={handleOpenCart} className='flex items-center justify-between p-3 boder-0 hover:bg-white hover:text-[#5b21b6] rounded-full bg-[#5b21b6] text-white w-auto max-w-[12em]'>
             <FontAwesomeIcon icon={faShoppingCart} />
             <b className="bubble">{totalpickedItems}</b>
@@ -144,16 +151,16 @@ function App() {
       </nav>
 
       <div  className='flex actions'>
-       {showFilter && <Sidebar handleChange={handleChange} handleClick={handleClick} handleRangeSelect={handleRangeSelect} priceRange={priceRange} handleShowAll={showAll} /> } 
+       {showFilter && <Sidebar handleSidebar={handleSidebar} handleChange={handleChange} handleClick={handleClick} handleRangeSelect={handleRangeSelect} priceRange={priceRange} handleShowAll={showAll} /> } 
        {console.log("price range :", priceRange)}
-        <main className='p-8'>
+        <main className='p-5'>
 
-          <Searchbar handleInput={handelInput} searchquery={searchQuery} />
+          <Searchbar handleInput={handelInput} searchquery={searchQuery} handleFilters={handleSidebar} handleShowAll={showAll}/>
             
             { loadingState ? <Loader /> :
                 <>
                   <div className='text-start mb-2'> {result.length > 0 ? `Found ${totalresults} results` : 'No results found'}</div>
-                  <div className="flex gap-5 justify-between flex-wrap mx-auto">
+                  <div className="flex gap-5 flex-wrap mx-auto">
                     {result}
                   </div>
                 </>
