@@ -114,7 +114,9 @@ function App() {
 // Show Hide Filters in sideNav
   function handleFilters(){
     setShowFilter(prev=> !prev);
+    if(window.innerWidth <= 883){
     document.body.classList.toggle('disable-scroll');
+  }
   }
 
   // Total Added Items Calc
@@ -151,7 +153,7 @@ function App() {
             { loadingState ? <Loader /> :
                 <>
                   <div className='text-start mb-2'> {result.length > 0 ? `Found ${totalresults} results` : 'No results found'}</div>
-                  <div className="flex gap-5 flex-wrap mx-auto">
+                  <div className="flex gap-5 justify-between flex-wrap mx-auto">
                     {result}
                   </div>
                 </>
