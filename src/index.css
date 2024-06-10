@@ -41,6 +41,9 @@ aside{
  background-color: #7532fa;
 }
 
+.card-img{
+    width: 100%;
+}
 main{
   width: 100%;
 }

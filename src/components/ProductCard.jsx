@@ -3,8 +3,8 @@ export default function ProductCard({prod, addItem}) {
     return (
         <div className=" w-[14rem] bg-white border border-gray-200 rounded-3xl shadow  shrink-0">
             <div
-                className="h-56 mx-3 mt-3 overflow-hidden text-white bg-clip-border rounded-xl bg-[#eee]">
-                <img
+                className="h-56 mx-3 mt-3 overflow-hidden text-white bg-clip-border rounded-xl bg-[#fff]">
+                <img className="card-img"
                     src={prod.img}
                     alt="card-image" />
             </div>
