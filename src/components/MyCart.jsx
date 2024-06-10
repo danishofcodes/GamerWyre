@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-export default function MyCart({ cartItems, handleClose }) {
+export default function MyCart({ cartItems, handleClose , removeFromCart}) {
     let total = 0;
     cartItems.forEach(cartItems => total += cartItems.price);
     const gst = total * 18 / 100;
@@ -10,17 +10,23 @@ export default function MyCart({ cartItems, handleClose }) {
 
     return (
         <div className="backdropmodal">
-            <div className='cart bg-stone-300 rounded-3xl shadow-lg fixed top-[20px] left-[20ems]'>
-                <div className="bg-[#8900fa] text-white font-bold flex items-center justify-between ps-4 pe-2 py-2 rounded-full"> <FontAwesomeIcon icon={faShoppingCart} />  <h3> My Cart </h3>
+            <div className='cart bg-stone-100 rounded-3xl shadow-lg fixed top-[20px] left-[20ems]'>
+                <div className="bg-[#7532fa] text-white font-bold flex items-center justify-between ps-4 pe-2 py-2 rounded-full"> <FontAwesomeIcon icon={faShoppingCart} />  <h3> My Cart </h3>
                     <button onClick={handleClose} className="bg-[#fff] w-[30px] h-[30px] text-[#000] rounded-full"><FontAwesomeIcon icon={faTimes} /></button>
                 </div>
                 {cartItems.length != 0 &&
                     <div className='products-in-cart'>
                         <div className="overflow-auto max-h-[15em] mt-3">
                             {cartItems.map((item, index) => {
-                                return (<div key={index} className="bg-stone-200 p-2  my-2 flex items-center justify-between rounded-md ">
-                                    <h2>{item.title}</h2><span>{item.price}</span>
-                                </div>)
+                                return (
+                                <div key={index} className="bg-[#faf5ff] p-2  my-2 flex items-center justify-between rounded-md ">
+                                    <div className='flex items-center justify-between w-[95%]'>
+                                        <h2>{item.title}</h2>
+                                        <div>{item.price}</div>
+                                    </div>
+                                    <button onClick={()=>removeFromCart(item)}><FontAwesomeIcon icon={faTimes} className='text-[#7532fa]'/></button>
+                                </div>
+                            )
                             })}
                         </div>
                         <hr />
@@ -47,8 +53,8 @@ export default function MyCart({ cartItems, handleClose }) {
                                         <td colSpan={2}><hr/></td>
                                     </tr>
                                     <tr>
-                                        <td className='font-bold text-[#8900fa]'>Net Total</td>
-                                        <td className='text-end font-bold  text-[#8900fa]'>{parseFloat(net).toFixed(2)}</td>
+                                        <td className='font-bold text-[#7532fa]'>Net Total</td>
+                                        <td className='text-end font-bold  text-[#7532fa]'>{parseFloat(net).toFixed(2)}</td>
                                     </tr>
                                 </tbody>
                             </table>
