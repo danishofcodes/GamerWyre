@@ -10,7 +10,7 @@ export default function MyCart({ cartItems, handleClose , removeFromCart}) {
 
     return (
         <div className="backdropmodal">
-            <div className='cart bg-stone-100 rounded-3xl shadow-lg fixed top-[20px] left-[20ems]'>
+            <div className='cart bg-stone-100 rounded-3xl shadow-lg fixed'>
                 <div className="bg-[#7532fa] text-white font-bold flex items-center justify-between ps-4 pe-2 py-2 rounded-full"> <FontAwesomeIcon icon={faShoppingCart} />  <h3> My Cart </h3>
                     <button onClick={handleClose} className="bg-[#fff] w-[30px] h-[30px] text-[#000] rounded-full"><FontAwesomeIcon icon={faTimes} /></button>
                 </div>
@@ -21,7 +21,7 @@ export default function MyCart({ cartItems, handleClose , removeFromCart}) {
                                 return (
                                 <div key={index} className="bg-[#faf5ff] p-2  my-2 flex items-center justify-between rounded-md ">
                                     <div className='flex items-center justify-between w-[95%]'>
-                                        <h2>{item.title}</h2>
+                                        <h2 className='truncate'>{item.title}</h2>
                                         <div>{item.price}</div>
                                     </div>
                                     <button onClick={()=>removeFromCart(item)}><FontAwesomeIcon icon={faTimes} className='text-[#7532fa]'/></button>

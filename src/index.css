@@ -11,10 +11,14 @@
 nav{
     /* margin-bottom: 20px; */
     padding: 10px;
-  
+    position: relative;
+    z-index: 999;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+aside{
+  z-index: 999;
+}
 /* .away{
     padding: 1em;
   margin-left: 20em;
@@ -72,12 +76,10 @@ input[type=radio]:hover{
 }
 
 .cart{
-  /* height: auto; */
-  width: 40em;
   background: #fff;
   padding: 15px;
-  min-height: 10em;
-  max-height: 32em;
+  width: 46em;
+
 }
 
 .backdropmodal{background-color: #616161a6;
@@ -107,5 +109,11 @@ overflow: hidden;
 .actions{
   display: flex;
   flex-direction: column;
+}
+
+.cart{
+    width: 95%;
+    margin: 10px;
+    font-size: 13px
 }
 }
