@@ -20,6 +20,10 @@ nav{
   margin-left: 20em;
 } */
 
+.selected-item{
+  background-color: #ff9513;
+}
+
 aside{
     /* background-color: #ddd; */
     width: 18em;
@@ -30,25 +34,28 @@ aside{
   }
 
 .inp-check-field input:checked ~ .checked{
- background-color: #8F00FF;
+ background-color: #7532fa;
 }
 
+main{
+  width: 100%;
+}
 
 .inp-check-field input ~ .checked{
     background-color: #ffffff;
    }
 
    input[type=radio]{
-    accent-color: #8F00FF;
+    accent-color: #7532fa;
     height: 1.3em;
     width: 1.3em;
     cursor: pointer;
 }
 
-input[type='range']{ accent-color: #8F00FF; }
+input[type='range']{ accent-color: #7532fa;     width: 100%;}
 
 input[type=radio]:hover{
-  outline: #8F00FF;
+  outline: #7532fa;
   border: #ff9513;
 }
 
@@ -67,7 +74,7 @@ input[type=radio]:hover{
 .cart{
   /* height: auto; */
   width: 40em;
-  background: aliceblue;
+  background: #fff;
   padding: 15px;
   min-height: 10em;
   max-height: 32em;
@@ -83,4 +90,22 @@ justify-content: center;
 align-items: center;
 backdrop-filter: blur(6px);
 overflow: hidden;
+}
+
+.disable-scroll {
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+  aside {
+    width: 100%;
+    z-index: 999;
+    background: #fff;
+    top: -1px;
+    position: sticky;
+  }
+.actions{
+  display: flex;
+  flex-direction: column;
+}
 }
