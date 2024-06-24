@@ -160,8 +160,10 @@ function App() {
             { loadingState ? <Loader /> :
                 <>
                   <div className='text-start mb-2'> {result.length > 0 ? `Found ${totalresults} results` : 'No results found'}</div>
-                  <div className="flex gap-5 flex-wrap mx-auto">
+                 <div className="mx-auto">
+                  <div className="flex gap-5 flex-wrap">
                     {result}
+                  </div>
                   </div>
                 </>
             }

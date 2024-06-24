@@ -128,3 +128,9 @@ overflow: hidden;
   width: 86px;
   font-weight: 400;
 }
+
+@media screen and (min-width: 362px) and (max-width: 530px) {
+  .csize {
+     width: 45%;
+  }
+}

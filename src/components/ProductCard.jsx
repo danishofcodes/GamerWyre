@@ -1,10 +1,10 @@
 export default function ProductCard({prod, addItem}) {
     const baseClass = "w-full font-sans font-bold text-center uppercase text-xs py-4 px-4  bg-gray-900 text-white hover:bg-[#ff9513] rounded-br-3xl rounded-bl-3xl ";
     return (
-        <div className=" w-[9rem] sm:w-[9em] md:w-[12em] lg:w-[14em] bg-white border border-gray-200 rounded-3xl shadow  shrink-0">
+        <div className=" w-[10rem]  csize sm:w-[10em] md:w-[13em]  lg:w-[14em] bg-white border border-gray-200 rounded-3xl shadow  shrink-0">
             <div
                 className="h-[9em] sm:h-[9em] md:h-56 lg:h-56  mx-3 mt-3 overflow-hidden text-white bg-clip-border rounded-xl bg-[#fff]">
-                <img className="card-img"
+                <img className=" object-cover w-full h-full"
                     src={prod.img}
                     alt="card-image" />
             </div>
